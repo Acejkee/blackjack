@@ -47,7 +47,7 @@ class BlackJack:
                     print('Поздравляю, вы победили!')
                     break
             elif choice == 'n':
-                if score > bot_score and bot_score < 19:
+                if score > bot_score:
                     while bot_score < score:
                         bot_score = self.random_card(bot_score, True)
                 if score < bot_score <= 21:
