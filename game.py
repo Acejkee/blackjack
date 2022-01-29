@@ -19,7 +19,7 @@ class BlackJack:
         current = self.deck.pop()
         if type(current) is int:
             score += current
-        elif current == 'Ace':
+        elif current == 'ACE':
             if score <= 10:
                 score += 11
             else:
@@ -36,7 +36,7 @@ class BlackJack:
             choice = input('Будете брать карту? y/n\n')
             if choice == 'y':
                 score = self.random_card(score, False)
-                if bot_score < 19 and score <= 21:
+                if bot_score < score:
                     bot_score = self.random_card(bot_score, True)
                 if score > 21 or bot_score == 21:
                     print('Извините, но вы проиграли')
@@ -48,7 +48,7 @@ class BlackJack:
                     break
             elif choice == 'n':
                 if score > bot_score and bot_score < 19:
-                    while bot_score < 19:
+                    while bot_score < score:
                         bot_score = self.random_card(bot_score, True)
                 if score < bot_score <= 21:
                     print(f'Вы проиграли, у вас {score} очков, у крупье {bot_score} очков')
@@ -56,6 +56,7 @@ class BlackJack:
                     print(f'Вы победили, у вас {score} очков, у крупье {bot_score} очков')
 
                 break
+
 
     def start(self):
         random.shuffle(self.deck)
