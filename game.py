@@ -57,7 +57,6 @@ class BlackJack:
 
                 break
 
-
     def start(self):
         random.shuffle(self.deck)
         print('Игра в BlackJack началась')
